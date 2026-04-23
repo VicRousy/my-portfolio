@@ -9,6 +9,29 @@ const SKILLS = {
   Tools: ["Git / GitHub", "NPM", "PostCSS", "VS Code"]
 };
 
+const VermLogo = () => (
+  <svg 
+    width="42" 
+    height="42" 
+    viewBox="0 0 100 100" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+    style={{ filter: "drop-shadow(0 0 8px rgba(0, 255, 200, 0.5))" }}
+    className="group-hover:scale-110 transition-transform duration-300"
+  >
+    <path 
+      d="M15 30L50 85L85 30H72L50 64L28 30H15Z" 
+      fill="#00ffc8" 
+      fillOpacity="0.8"
+    />
+    <path 
+      d="M32 20L50 48L68 20H80L50 63L20 20H32Z" 
+      fill="#7c6fff" 
+      fillOpacity="0.9"
+    />
+  </svg>
+);
+
 const PROJECTS = [
   {
     title: "Node Informational Site",
@@ -118,8 +141,12 @@ export default function Portfolio() {
     <div className="bg-[#080810] text-[#e2e2e2] font-mono min-h-screen selection:bg-[#00ffc8]/30">
       
       {/* NAV */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#080810]/95 backdrop-blur-md border-b border-[#13132a] flex justify-between items-center px-[6%] h-58px">
-        <span className="text-[#00ffc8] font-bold text-lg tracking-[3px]">V<span className="text-[#7c6fff]">.</span>M</span>
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#080810]/95 backdrop-blur-md border-b border-[#13132a] flex justify-between items-center px-[6%] h-[72px]">
+        <button onClick={() => scrollTo("About")} className="bg-transparent border-none p-0 cursor-pointer flex items-center group">
+           <VermLogo />
+           <span className="ml-3 text-white font-bold text-lg tracking-[3px] group-hover:text-[#00ffc8] transition-colors uppercase">VERM</span>
+        </button>
+
         <div className="hidden sm:flex gap-6">
           {NAV_LINKS.map((n) => (
             <button key={n} onClick={() => scrollTo(n)} className={`text-[11px] tracking-[2px] uppercase transition-colors bg-transparent border-none cursor-pointer ${active === n ? 'text-[#00ffc8] border-b border-[#00ffc8]' : 'text-gray-500 hover:text-[#00ffc8]'}`}>{n}</button>
@@ -133,7 +160,7 @@ export default function Portfolio() {
         <div className="relative z-10 max-w-3xl">
           <p className="text-[#00ffc8] text-[11px] tracking-[5px] uppercase mb-4">&gt; STATUS: OPERATIONAL —</p>
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight mb-4">Victor .O.<br />Matthew</h1>
-          <h2 className="text-2xl text-[#7c6fff] mb-8 min-h-40px">{typed}<span className="animate-pulse text-[#00ffc8]">_</span></h2>
+          <h2 className="text-2xl text-[#7c6fff] mb-8 min-h-[40px]">{typed}<span className="animate-pulse text-[#00ffc8]">_</span></h2>
           <p className="text-[15px] leading-relaxed text-gray-400 mb-10 border-l-2 border-[#13132a] pl-6">
             Based in <span className="text-white font-bold">Ikorodu, Lagos</span>. I architect high-performance web systems using modern JavaScript environments. Focused on clean code and scalable architecture.
           </p>
@@ -162,7 +189,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* PROJECTS */}
       <section id="projects" className="px-[8%] py-24 border-t border-[#13132a]">
         <p className="text-[#ff6b6b] text-[11px] tracking-[5px] uppercase mb-12">&gt; Deployments</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -186,7 +212,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* CONTACT */}
       <section id="contact" className="px-[8%] py-32 border-t border-[#13132a] text-center">
         <div className="max-w-2xl mx-auto">
           <p className="text-[#ffd700] text-[11px] tracking-[5px] uppercase mb-6">&gt; Connection_Protocol</p>
