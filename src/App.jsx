@@ -34,6 +34,15 @@ const VermLogo = () => (
 
 const PROJECTS = [
   {
+    title: "Divine Lifting School",
+    tag: "Client Work",
+    stack: ["React", "Vite", "Vercel"],
+    desc: "Built a responsive school website with Home, About, Academics, Admission, Contact, and integrated portal login access for students, parents, and staff.",
+    color: "#00ffc8",
+    github: "https://divine-lifting-website.vercel.app/",
+    linkLabel: "LIVE SITE",
+  },
+  {
     title: "Node Informational Site",
     tag: "Backend",
     stack: ["Node.js", "HTTP", "FS"],
@@ -205,7 +214,7 @@ export default function Portfolio() {
                     <span key={t} className="text-[10px] text-gray-600 uppercase font-bold">{t}</span>
                   ))}
                 </div>
-                <a href={p.github} target="_blank" rel="noreferrer" className="text-[11px] font-bold tracking-widest hover:underline no-underline" style={{ color: p.color }}>GITHUB →</a>
+                <a href={p.github} target="_blank" rel="noreferrer" className="text-[11px] font-bold tracking-widest hover:underline no-underline" style={{ color: p.color }}>{p.linkLabel ?? "GITHUB"} →</a>
               </div>
             </div>
           ))}
